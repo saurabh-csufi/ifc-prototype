@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embed Demo — Bharat In Data</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      padding: 40px 24px;
+    }
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+    .demo-section {
+      margin-bottom: 48px;
+    }
+    .demo-section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #0e3258;
+    }
+    .demo-section p {
+      color: #64748b;
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+    .embed-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .embed-row iframe {
+      flex: 1;
+      min-width: 300px;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+    code { font-family: 'SF Mono', 'Fira Code', Consolas, monospace; }
+  </style>
+</head>
+<body>
+
+  <h1>Bharat In Data — Embed Demo</h1>
+  <p class="subtitle">Examples showing how to embed education indicator charts on any website.</p>
+
+  <!-- Example 1: Single chart -->
+  <div class="demo-section">
+    <h2>1. Number of Colleges over the years (AISHE)</h2>
+    <p>Andhra Pradesh — no filters needed for this indicator.</p>
+    <pre><code>&lt;iframe
+  src="http://localhost:5173/?embed=true&amp;indicator=aishe_colleges_count&amp;state=wikidataId/Q1159"
+  width="480" height="420"
+  style="border:1px solid #e2e8f0;border-radius:12px;"
+  frameborder="0" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+    <iframe
+      src="http://localhost:5173/?embed=true&indicator=aishe_colleges_count&state=wikidataId/Q1159"
+      width="480" height="420"
+      style="border:1px solid #e2e8f0;border-radius:12px;"
+      frameborder="0" loading="lazy"></iframe>
+  </div>
+
+  <!-- Example 2: Chart with filters -->
+  <div class="demo-section">
+    <h2>2. Dropout Rate (UDISE+) — Primary, Total</h2>
+    <p>Andhra Pradesh — filters passed via URL: level=Primary, gender=Total.</p>
+    <pre><code>&lt;iframe
+  src="http://localhost:5173/?embed=true&amp;indicator=udise_dropout_rate&amp;state=wikidataId/Q1159&amp;f_level=Primary&amp;f_gender=Total"
+  width="480" height="420"
+  style="border:1px solid #e2e8f0;border-radius:12px;"
+  frameborder="0" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+    <iframe
+      src="http://localhost:5173/?embed=true&indicator=udise_dropout_rate&state=wikidataId/Q1159&f_level=Primary&f_gender=Total"
+      width="480" height="420"
+      style="border:1px solid #e2e8f0;border-radius:12px;"
+      frameborder="0" loading="lazy"></iframe>
+  </div>
+
+  <!-- Example 3: Two charts side by side -->
+  <div class="demo-section">
+    <h2>3. Side-by-side: Universities + Teachers (AISHE)</h2>
+    <p>Two embeds in a row — Maharashtra.</p>
+    <div class="embed-row">
+      <iframe
+        src="http://localhost:5173/?embed=true&indicator=aishe_universities_count&state=wikidataId/Q1191"
+        width="460" height="420"
+        style="border:1px solid #e2e8f0;border-radius:12px;"
+        frameborder="0" loading="lazy"></iframe>
+      <iframe
+        src="http://localhost:5173/?embed=true&indicator=aishe_teachers_by_faculty&state=wikidataId/Q1191&f_facultyType=Total&f_gender=Total"
+        width="460" height="420"
+        style="border:1px solid #e2e8f0;border-radius:12px;"
+        frameborder="0" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- Example 4: NSS80 indicator -->
+  <div class="demo-section">
+    <h2>4. Private Coaching Percentage (NSS 80th Round)</h2>
+    <p>Andhra Pradesh — Secondary level, All gender, All sector.</p>
+    <pre><code>&lt;iframe
+  src="http://localhost:5173/?embed=true&amp;indicator=nss80_coaching_percentage&amp;state=wikidataId/Q1159&amp;f_level=Secondary&amp;f_gender=All&amp;f_sector=All"
+  width="480" height="420"
+  style="border:1px solid #e2e8f0;border-radius:12px;"
+  frameborder="0" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+    <iframe
+      src="http://localhost:5173/?embed=true&indicator=nss80_coaching_percentage&state=wikidataId/Q1159&f_level=Secondary&f_gender=All&f_sector=All"
+      width="480" height="420"
+      style="border:1px solid #e2e8f0;border-radius:12px;"
+      frameborder="0" loading="lazy"></iframe>
+  </div>
+
+</body>
+</html>
